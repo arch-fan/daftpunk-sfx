@@ -1,0 +1,18 @@
+export const sounds = [
+  "Work It",
+  "Make It",
+  "Do It",
+  "Makes Us",
+  "Harder",
+  "Better",
+  "Faster",
+  "Stronger",
+  "More Than",
+  "Hour",
+  "Our",
+  "Never",
+  "Ever",
+  "After",
+  "Work Is",
+  "Over",
+];

@@ -1,0 +1,31 @@
+---
+import type { HTMLAttributes } from "astro/types";
+
+interface Props extends HTMLAttributes<"button"> {
+  sound: string;
+}
+
+const { sound, ...props } = Astro.props;
+---
+
+<button data-sound-name={sound.replace(" ", "")} {...props}>{sound}</button>
+
+<script>
+  const button = document.querySelectorAll("button[data-sound-name]");
+
+  for (const btn of button) {
+    const soundName = btn.getAttribute("data-sound-name");
+    const audio = new Audio(`/daftpunk-sfx/sounds/${soundName}.mp3`);
+
+    btn.addEventListener("click", () => {
+      audio.currentTime = 0;
+      audio.play();
+
+      btn.classList.add("!bg-opacity-100");
+
+      audio.addEventListener("ended", () => {
+        btn.classList.remove("!bg-opacity-100");
+      });
+    });
+  }
+</script>
