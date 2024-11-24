@@ -15,6 +15,31 @@ const { title, description } = Astro.props;
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/x-icon" href="/daftpunk-sfx/favicon.ico" />
     <meta name="generator" content={Astro.generator} />
+
+    <!-- Facebook Meta Tags -->
+    <meta
+      property="og:url"
+      content={import.meta.env.SITE + Astro.url.pathname}
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={import.meta.env.BASE_URL + "/og.png"} />
+
+    <!-- Twitter Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta
+      property="twitter:domain"
+      content={new URL(import.meta.env.SITE).hostname}
+    />
+    <meta
+      property="twitter:url"
+      content={import.meta.env.SITE + Astro.url.pathname}
+    />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={import.meta.env.BASE_URL + "/og.png"} />
+
     <title>{title}</title>
   </head>
   <body class="bg-zinc-950">
