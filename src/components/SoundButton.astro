@@ -15,12 +15,12 @@ const { sound, ...props } = Astro.props;
 
   for (const btn of button) {
     const soundName = btn.getAttribute("data-sound-name");
+    const audio = new Audio(`/daftpunk-sfx/sounds/${soundName}.mp3`);
+    audio.setAttribute("preload", "auto");
+    audio.setAttribute("playsinline", "true");
 
     btn.addEventListener("click", () => {
-      const audio = new Audio(`/daftpunk-sfx/sounds/${soundName}.mp3`);
       audio.currentTime = 0;
-      audio.setAttribute("preload", "auto");
-      audio.setAttribute("playsinline", "true");
       audio.play();
 
       btn.classList.add("!bg-opacity-100");
